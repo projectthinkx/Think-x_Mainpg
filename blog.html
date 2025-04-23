@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think-X Blog page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .blog-section {
+            padding: 4rem 2rem;
+            opacity: 0;
+            transform: translateX(100px);
+            margin-top: 50px;
+            animation: fadeIn 1s ease-in forwards ;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .blog-section h2 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 0 2rem;
+}
+
+        .blog-card:hover{
+            transition: 0.5s ease all;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            opacity: 0;
+        }
+        
+        @keyframes leftToRight {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes rightToLeft {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .left-to-right {
+            animation: leftToRight 1s ease-out forwards;
+        }
+        
+        .right-to-left {
+            animation: rightToLeft 1s ease-out forwards;
+        }
+        
+        .blog-card:nth-child(1) { animation-delay: 0.5s; }
+        .blog-card:nth-child(2) { animation-delay: 1s; }
+        .blog-card:nth-child(3) { animation-delay: 1.5s; }
+        .blog-card:nth-child(4) { animation-delay: 2s; }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-card h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .blog-summary {
+            font-size: 1rem;
+            color: #555;
+            margin: 0.8rem 0;
+        }
+        
+        .read-more {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #1a4fd1;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            .blog-card:nth-child(n+5) {
+                display: block;
+            }
+        }
+        @media (min-width: 768px) {
+            .navbar {
+                justify-content: space-evenly;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: none;
+            }
+            .nav-links a {
+                padding: 10px 20px;
+            }
+            .menu-icon {
+                display: none;
+            }
+            
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            height: 50px;
+            top: 0;
+            width: 100%;
+        }
+        
+        .navbar .logo {
+            height: 90%;
+            display: flex;
+            flex-direction: row;
+        }
+        .navbar .logo h2{
+            margin-left: 20px;
+            color: white;
+        }
+        .navbar .logo img{
+            border-radius: 10px;
+        }
+     
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        marquee {
+            font-size: 14px;
+        }
+    </style>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image\logo_x.png" alt="" width="50px">
+            <h2>Think-X</h2>
+        </div>
+    </div>
+        <section id="blog" class="blog-section">
+            <h2>📝 Latest Blog Posts</h2>
+            <p>Stay updated with the latest trends and insights in technology and innovation.</p>
+    
+            <div class="blog-container">
+                <article class="blog-card left-to-right">
+                    <h3>🚀 The Future of AI in Web Development</h3>
+                    <p class="blog-date">📅 March 10, 2025</p>
+                    <p class="blog-summary">Artificial Intelligence is transforming web development with automation, chatbots, and personalized experiences. Learn how AI can boost your website performance.</p>
+                </article>
+    
+                <article class="blog-card right-to-left">
+                    <h3>📱 Why Mobile-First Design is Essential in 2025</h3>
+                    <p class="blog-date">📅 March 5, 2025</p>
+                    <p class="blog-summary">With over 70% of users browsing via mobile, designing for mobile-first is no longer optional. Discover the best practices for a mobile-friendly website.</p>
+                    
+                </article>
+    
+                <article class="blog-card left-to-right">
+                    <h3>🎨 UI/UX Design Trends in 2025</h3>
+                    <p class="blog-date">📅 February 28, 2025</p>
+                    <p class="blog-summary">From immersive experiences to dark mode enhancements, explore the top UI/UX design trends that will dominate web and app development.</p>
+                  
+                </article>
+    
+                <article class="blog-card right-to-left">
+                    <h3>🖥️ PC Setup & Assembly: A Beginner’s Guide</h3>
+                    <p class="blog-date">📅 February 20, 2025</p>
+                    <p class="blog-summary">Building your own PC? Learn about the essential components, compatibility checks, and step-by-step assembly to create your perfect setup.</p>
+                     
+                </article>
+    
+                <article class="blog-card left-to-right">
+                    <h3>📈 Digital Marketing Strategies for 2025</h3>
+                    <p class="blog-date">📅 February 15, 2025</p>
+                    <p class="blog-summary">SEO, social media, and content marketing are evolving fast. Discover the latest strategies to boost engagement and grow your online presence.</p>
+                    
+                </article>
+    
+                <article class="blog-card right-to-left">
+                    <h3>🤖 AI & Automation Tools: The Future of Productivity</h3>
+                    <p class="blog-date">📅 February 10, 2025</p>
+                    <p class="blog-summary">Explore the best AI-powered tools for task automation, chatbots, and workflow optimization to save time and enhance efficiency.</p>
+                     
+                </article>
+            </div>
+        </section>
+        <footer>
+            <marquee>Think-X IT Solutions - Innovate | Build | Scale &nbsp; | &nbsp; © 2025 Think-X IT Solutions. All Rights Reserved. &nbsp; | &nbsp; This website is developed by Dineshbabu & Team THINK-X</marquee>
+        </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const cards = document.querySelectorAll(".blog-card");
+        
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                            observer.unobserve(entry.target); // Animate once
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+        
+                cards.forEach(card => {
+                    card.style.animationPlayState = 'paused'; // Pause until in view
+                    observer.observe(card);
+                });
+            });
+        </script>
+        
+    </body>
+    </html>
+    

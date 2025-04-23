@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About BuildWith</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image\logo_x.png" alt="" width="50px">
+            <h2>Think-X</h2>
+        </div>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Service</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <section id="about" class="about-section">
+        <h2>About BuildWith</h2>
+        <p>
+            <strong>BuildWith</strong> is a next-generation technology startup focused on delivering 
+            <strong>innovative digital solutions</strong> that empower businesses and individuals. 
+            Established in <strong>2025</strong>, we specialize in 
+            <strong>web development, mobile applications, frontend development, backend development, UI/UX design, AI automation, and digital marketing</strong>.
+        </p>
+
+        <div class="mission-vision-container">
+            <div class="mission slide-right">
+                <h3>🚀 Our Mission</h3>
+                <p>
+                    At BuildWith, our mission is to <strong>bridge the gap between ideas and reality</strong> 
+                    by providing cutting-edge technological solutions.
+                </p>
+            </div>
+            <div class="vision slide-left">
+                <h3>💡 Our Vision</h3>
+                <p>
+                    We envision a world where technology enhances human potential. Our focus is on creating 
+                    <strong>smart, scalable, and efficient solutions</strong> that redefine how businesses operate in the 
+                    <strong>digital era</strong>.
+                </p>
+            </div>
+        </div>
+
+        <h3>🛠️ Technologies & Features We Build</h3>
+        <ul>
+            <li class="flip"> <strong>AI-Powered Applications:</strong> Smart chatbots, NLP solutions, and automation tools</li>
+            <li class="flip"> <strong>Frontend Development:</strong> Building modern, responsive user interfaces</li>
+            <li class="flip"> <strong>Backend Development:</strong> Scalable and secure server-side applications</li>
+            <li class="flip"> <strong>Mobile Application Development:</strong> Creating apps with React Native and Flutter</li>
+            <li class="flip"> <strong>UI/UX Design with Figma:</strong> Designing intuitive and engaging user experiences</li>
+            <li class="flip"> <strong>Digital Marketing & SEO:</strong> Social media automation, content optimization, and branding strategies</li>
+        </ul>
+    </section>
+    <footer>
+        <marquee>Think-X IT Solutions - Innovate | Build | Scale &nbsp; | &nbsp; © 2025 Think-X IT Solutions. All Rights Reserved. &nbsp; | &nbsp; This website is developed by Dineshbabu & Team THINK-X</marquee>
+    </footer>
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("navLinks");
+            nav.classList.toggle("nav-active");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".mission, .vision, .filp");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.2 });
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+    </script>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 50px;
+            background-color: #fff;
+            color: #333;
+        }
+        .visible {
+            opacity: 1;
+            transform: none;
+        }
+        .about-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+            color: #333;
+            animation: fadeIn 1.5s ease-in-out ;
+        }
+
+        .mission-vision-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .mission, .vision {
+            flex: 1;
+            min-width: 300px;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-right {
+            transform: translateX(-100%);
+            animation: slideInRight 1s forwards;
+        }
+
+        .slide-left {
+            transform: translateX(100%);
+            animation: slideInLeft 1s forwards;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #444;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+
+        ul li {
+            background: #fff;
+            padding: 0.8rem;
+            margin: 20px 0;
+            border-radius: 6px;
+            color: #333;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            animation: flipIn 0.6s ease-in-out;
+        }
+
+        @keyframes flipIn {
+            from { transform: rotateY(90deg); opacity: 0; }
+            to { transform: rotateY(0); opacity: 1; }
+        }
+
+        .cta-button {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 2rem 1rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            p, ul {
+                font-size: 1rem;
+            }
+            .mission-vision-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            height: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .navbar .logo h2 {
+            margin-left: 20px;
+            color: white;
+        }
+        .navbar .logo img {
+            border-radius: 10px;
+        }
+        .nav-links {
+            display: none;
+            margin-top: 20px;
+            flex-direction: column;
+            background-color: rgba(51, 51, 51, 0.4);
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100%;
+            text-align: left;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px;
+            padding-top: 25px;
+            display: block;
+            padding-left: 100px;
+            font-size: 15px;
+            background-color: rgba(95, 92, 92, 0.925);
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .nav-links a:hover {
+            background-color: rgba(253, 253, 253, 0.8);
+            color: black;
+            border-radius: 10px;
+        }
+        .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-active {
+            display: flex;
+        }
+        @media (min-width: 768px) {
+        .navbar {
+                justify-content: space-evenly;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: none;
+            }
+            .hero {
+                display: flex;
+                flex-direction: row;
+            }
+            .nav-links a {
+                padding: 10px 20px;
+            }
+            .menu-icon {
+                display: none;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        footer {
+          width: 100%;
+          background-color: #333;
+          color: white;
+          text-align: center;
+          padding: 10px 0;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          
+          overflow: hidden;
+      }
+      marquee {
+          font-size: 14px;
+      }
+      .service:hover, .technology:hover{
+        transform: scale(1.1);
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    </style>
+</body>
+</html>

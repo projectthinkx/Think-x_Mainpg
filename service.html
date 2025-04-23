@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think-X Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding-top: 50px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+            align-items: center;
+            overflow: hidden;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(51, 51, 255, 0.7);
+            opacity: 0;
+            animation: fadeMove 10s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 10px;
+        }
+        .box:nth-child(1) { animation-delay: 0s; }
+        .box:nth-child(2) { animation-delay: 1s; }
+        .box:nth-child(3) { animation-delay: 2s; }
+        .box:nth-child(4) { animation-delay: 3s; }
+        .box:nth-child(5) { animation-delay: 4s; }
+        .box:nth-child(6) { animation-delay: 5s; }
+        .box:nth-child(7) { animation-delay: 6s; }
+        .box:nth-child(8) { animation-delay: 7s; }
+        .box:nth-child(9) { animation-delay: 8s; }
+        .box:nth-child(10) { animation-delay: 9s; }
+        @keyframes fadeMove {
+            0% { opacity: 0; transform: translateX(-50px); }
+            50% { opacity: 1; transform: translateX(50px); }
+            100% { opacity: 0; transform: translateX(100px); }
+        }
+        @media (max-width: 600px) {
+            .container { flex-direction: row; gap: 10px; }
+            .box { width: 80px; height: 80px; font-size: 14px; }
+        }
+        .services, .technologies {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .services ul, .technologies ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+        }
+        .services ul > li, .technologies ul > li {
+            background: rgba(0, 0, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            transition:  0.3s ease, transform 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            flex-direction: column;
+        }
+        .services ul > li:hover, .technologies ul > li:hover {
+            background: rgba(0, 0, 255, 0.2);
+            transform: scale(1.1);
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            height: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .navbar .logo h2 {
+            margin-left: 20px;
+            text-transform: none
+            ;
+            color: white;
+        }
+        .navbar .logo img {
+            border-radius: 10px;
+        }
+        .nav-links {
+            display: none;
+            margin-top: 20px;
+            flex-direction: column;
+            background-color: rgba(51, 51, 51, 0.4);
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100%;
+            text-align: left;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px;
+            padding-top: 25px;
+            display: block;
+            padding-left: 100px;
+            font-size: 15px;
+            background-color: rgba(95, 92, 92, 0.925);
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .nav-links a:hover {
+            background-color: rgba(253, 253, 253, 0.8);
+            color: black;
+            border-radius: 10px;
+        }
+        .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-active {
+            display: flex;
+        }
+        @media (min-width: 768px) {
+            .navbar {
+                justify-content: space-evenly;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: none;
+            }
+            .hero {
+                display: flex;
+                flex-direction: row;
+            }
+            .nav-links a {
+                padding: 10px 20px;
+            }
+            .menu-icon {
+                display: none;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        marquee {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image\logo_x.png" alt="" width="50px">
+            <h2>Think-X</h2>
+        </div>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Service</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="services">
+        <h2>🚀 Our Services</h2>
+        <ul>
+          <li>💻 Web Development</li>
+          <li>📱 Mobile App Development</li>
+          <li>🤖 AI & Automation</li>
+          <li>📊 Digital Marketing</li>
+          <li>🛡️ UI Ux Design</li>
+        </ul>
+    </div>
+
+    <div class="technologies">
+        <h2>🛠️ Technologies We Use</h2>
+        <ul>
+            <li>⚡ <strong>Frontend:</strong>Html, Css, JavaScript, React.js</li>
+            <li>🖥️ <strong>Backend:</strong> Node.js, Django, FastAPI</li>
+            <li> 🔐<Strong>Database:</Strong>SQL, MongoDB</li>
+            <li>📱 <strong>Mobile:</strong> React Native, Flutter, Swift, Kotlin</li>
+            <li>☁️ <strong>UiUx :</strong> Figma, Photoshop</li>
+            <li>🔍 <strong>AI & Machine Learning:</strong> TensorFlow, OpenAI, Computer Vision</li>
+            
+        </ul>
+    </div>
+
+    <h2>Technologies</h2>
+    <div class="container">
+        <div class="box">HTML</div>
+        <div class="box">CSS</div>
+        <div class="box">JavaScript</div>
+        <div class="box">NodeJS</div>
+        <div class="box">PHP</div>
+        <div class="box">Python</div>
+        <div class="box">Express</div>
+        <div class="box">SQL</div>
+        <div class="box">C</div>
+        <div class="box">WordPress</div>
+        <div class="box">UI/UX</div>
+    </div>
+    <footer>
+        <marquee>Think-X IT Solutions - Innovate | Build | Scale &nbsp; | &nbsp; © 2025 Think-X IT Solutions. All Rights Reserved. &nbsp; | &nbsp; This website is developed by Dineshbabu & Team THINK-X</marquee>
+    </footer>
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("navLinks");
+            nav.classList.toggle("nav-active");
+        }
+    </script>
+</body>
+</html>

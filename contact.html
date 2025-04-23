@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think-x Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            padding-bottom:50px;
+        }
+        .about-services{
+            margin-top: 80px;
+
+        }
+        .about-services, .contact-container {
+            width: 100%;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .about-services ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .about-services ul li {
+             background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            animation: zoomIn 0.8s ease-in-out;
+        }
+
+        .contact-details, .social-links {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 5px;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            color: #0056b3;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            height: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .navbar .logo h2 {
+            margin-left: 20px;
+            color: white;
+        }
+        .navbar .logo img {
+            border-radius: 10px;
+        }
+        .nav-links {
+            display: none;
+            margin-top: 20px;
+            flex-direction: column;
+            background-color: rgba(51, 51, 51, 0.4);
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100%;
+            text-align: left;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px;
+            padding-top: 25px;
+            display: block;
+            padding-left: 100px;
+            font-size: 15px;
+            background-color: rgba(95, 92, 92, 0.925);
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .nav-links a:hover {
+            background-color: rgba(253, 253, 253, 0.8);
+            color: black;
+            border-radius: 10px;
+        }
+        .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-active {
+            display: flex;
+        }
+        @media (min-width: 768px) {
+            .navbar {
+                justify-content: space-evenly;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: none;
+            }
+            .hero {
+                display: flex;
+                flex-direction: row;
+            }
+            .nav-links a {
+                padding: 10px 20px;
+            }
+            .menu-icon {
+                display: none;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        marquee {
+            font-size: 14px;
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 1; }
+        }
+        @keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .about-services, .contact-container {
+                padding: 15px;
+            }
+            .about-services ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image\logo_x.png" alt="" width="50px">
+            <h2>Think-X</h2>
+        </div>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Service</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div class="about-services">
+        <h2>🚀 About Our Services</h2>
+        <p>Think-X IT Solutions specializes in delivering cutting-edge digital solutions for businesses. Our services include:</p>
+        <ul>
+            <li>💻 Web Development - High-performance websites & web apps.</li>
+            <li>📱 Mobile App Development - Native & cross-platform apps.</li>
+            <li>☁️ Cloud Services - Scalable & secure cloud solutions.</li>
+            <li>🤖 AI & Automation - Smart AI solutions & process automation.</li>
+            <li>📊 Data Analytics - Transforming data into valuable insights.</li>
+            <li>🛡️ Cybersecurity - Ethical hacking & security assessments.</li>
+        </ul>
+    </div>
+    
+    <div class="contact-container">
+        <h2>📞 Contact Us</h2>
+        <p>If you have any inquiries, business proposals, or need support, feel free to contact us.</p>
+        <p>We’d love to hear from you! Get in touch with us via email, phone, or social media.</p>
+
+        <div class="contact-details">
+            <p>📍 <strong>Address:</strong> 6ht Stop Thirunagar, Madurai, TamilNadu - 625006</p>
+            <p>📧 <strong>Email:</strong> contact@buildwith.com</p>
+            <p>📞 <strong>Phone:</strong> +91 9629088585</p>
+        </div>
+
+        <div class="social-links">
+            <a href="#" target="_blank">🔗 LinkedIn</a>
+            <a href="#" target="_blank">💬 WhatsApp</a>
+            <a href="#" target="_blank">✉️ Email</a>
+        </div>
+    </div>
+    
+    <footer>
+        <marquee>Think-X IT Solutions - Innovate | Build | Scale &nbsp; | &nbsp; © 2025 Think-X IT Solutions. All Rights Reserved. &nbsp; | &nbsp; This website is developed by Dineshbabu & Team THINK-X</marquee>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nav = document.getElementById("navLinks");
+            const menuIcon = document.querySelector(".menu-icon");
+    
+            menuIcon.addEventListener("click", function () {
+                nav.classList.toggle("nav-active");
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think-X</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            color: black;
+            background-color: rgba(196, 190, 190, 0.849);
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            height: 50px;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            height: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .navbar .logo h2 {
+            margin-left: 20px;
+            color: white;
+        }
+        .navbar .logo img {
+            border-radius: 10px;
+        }
+        .nav-links {
+            display: none;
+            margin-top: 20px;
+            flex-direction: column;
+            background-color: rgba(51, 51, 51, 0.4);
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 100%;
+            text-align: left;
+            margin-right: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px;
+            padding-top: 25px;
+            display: block;
+            padding-left: 100px;
+            font-size: 15px;
+            background-color: rgba(95, 92, 92, 0.925);
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .nav-links a:hover {
+            background-color: rgba(253, 253, 253, 0.8);
+            color: black;
+            border-radius: 10px;
+        }
+        .menu-icon {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-active {
+            display: flex;
+        }
+        .container {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .hero, .about, .service-section, .technologies-section {
+            background: rgb(255, 255, 255);
+            color: black;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+        }
+        .hero .inner img {
+            width: 250px;
+        }
+        .contact {
+            display: flex;
+            flex-direction: column;
+            height: 50%;
+            bottom: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .hero a {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border: 2px solid black;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+        .about, .services, .technologies {
+            text-align: center;
+        }
+        button {
+            padding: 0.7rem 1.5rem;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .service-section, .technologies-section {
+            text-align: center;
+            padding: 3rem;
+            background-color: white;
+            color: black;
+        }
+        .services-list, .technologies-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .service, .technology {
+            background: white;
+            color: black;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.4);
+            width: 300px;
+            transition: all 0.5s ease;
+        }
+        .service h3, .technology h3 {
+            color: #2563eb;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-section {
+            text-align: center;
+            padding: 3rem;
+            background-color: #f8f9fa;
+        }
+        .contact-info {
+            margin-top: 2rem;
+        }
+        .social-links {
+            margin-bottom: 100px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+        }
+        .service:hover, .technology:hover {
+            transform: scale(1.1);
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        @media (min-width: 768px) {
+            .navbar {
+                justify-content: space-evenly;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: none;
+            }
+            .hero {
+                display: flex;
+                flex-direction: row;
+            }
+            .nav-links a {
+                padding: 10px 20px;
+            }
+            .menu-icon {
+                display: none;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        marquee {
+            font-size: 14px;
+        }
+
+        .section, .service, .technology {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: none;
+        }
+        @keyframes zoomIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .zoom-in.visible {
+            animation: zoomIn 0.8s ease forwards;
+        }
+        .fade-right.visible {
+            animation: fadeRight 0.8s ease forwards;
+        }
+        .fade-left.visible {
+            animation: fadeLeft 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image/logo_x.png" alt="Logo" width="50px">
+            <h2>Think-X</h2>
+        </div>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="service.html">Service</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="hero section zoom-in">
+            <div class="inner">
+                <img src="image/startup.png" alt="">
+            </div>
+            <div class="inner">
+                <h1>we are not only developers !</h1>
+                <p>We can focus on innovative solutions, fast-paced development, and scaling products quickly 
+                to address market gaps. Developers wear multiple hats, building and iterating 
+                on core features while adapting to evolving challenges.</p>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </section>
+
+        <section class="about section fade-right">
+            <div class="loud-wrap">
+                <h1>Customer First services</h1>
+            </div>
+            <div class="services-list">
+                <div class="service">
+                    <h2>Innovative Solutions</h2>
+                    <p>We offer fresh, creative products/services designed to address specific pain points in the market,
+                        making life easier or more efficient for our customers.</p>
+                </div>
+                <div class="service">
+                    <h2>Customer Priority</h2>
+                    <p>Customers are at the heart of everything we do, ensuring personalized, reliable, and high-quality service. Your satisfaction drives our commitment to excellence</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-section section fade-left">
+            <h2>Our Services</h2>
+            <p>We provide cutting-edge digital solutions to help businesses thrive in the modern era.</p>
+            <div class="services-list">
+                <div class="service"><h3>🌐 Web Development</h3><p>We build high-performance, scalable websites using React, Next.js, and modern web technologies.</p></div>
+                <div class="service"><h3>🌐 Front-end</h3><p>Building fast, responsive, and visually engaging web interfaces for a seamless user experience.</p></div>
+                <div class="service"><h3>🌐 Back-end</h3><p>Powering seamless functionality with secure, scalable backend solutions.</p></div>
+                <div class="service"><h3>📱 Mobile App Development</h3><p>Seamless mobile experiences using React Native & Flutter.</p></div>
+                <div class="service"><h3>🛡️ UI Ux Design</h3><p>Crafting intuitive digital experiences with seamless UI/UX design.</p></div>
+                <div class="service"><h3>🤖 AI & Automation</h3><p>Enhance your business with AI-driven chatbots, automation tools, and data processing.</p></div>
+                <div class="service"><h3>📈 Digital Marketing</h3><p>Boost your brand’s presence with SEO and digital strategies.</p></div>
+            </div>
+        </section>
+
+        <section class="technologies-section section zoom-in">
+            <h2>Our Technologies</h2>
+            <p>We use the latest and most powerful technologies to deliver high-quality solutions.</p>
+            <div class="technologies-list">
+                <div class="technology"><h3>🌐 Web Development</h3><p>React.js, Next.js, Angular, Vue.js, HTML, CSS, JavaScript</p></div>
+                <div class="technology"><h3>📱 Mobile App Development</h3><p>React Native, Flutter, Swift, Kotlin</p></div>
+                <div class="technology"><h3>🛡️ UI Ux Design</h3><p>Figma, Photoshop</p></div>
+                <div class="technology"><h3>🤖 AI & Machine Learning</h3><p>Python, TensorFlow, OpenAI, NLP, Chatbots</p></div>
+                <div class="technology"><h3>📊 Database & Backend</h3><p>Node.js, Express, Django, PostgreSQL, MongoDB, Firebase</p></div>
+            </div>
+        </section>
+
+        <section class="contact section fade-right">
+            <h2>Contact Us</h2>
+            <p>Have a project in mind? Let's work together to build something amazing!</p>
+            <div class="contact-info">
+                <p>📍 <strong>Address:</strong> 6ht Stop Thirunagar, Madurai, TamilNadu - 625006</p>
+                <p>📧 <strong>Email:</strong> contact@buildwith.com</p>
+                <p>📞 <strong>Phone:</strong> +91 9629088585</p>
+            </div>
+            <div class="social-links">
+                <a href="">Facebook</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <marquee>Think-X IT Solutions - Innovate | Build | Scale &nbsp; | &nbsp; © 2025 Think-X IT Solutions. All Rights Reserved. &nbsp; | &nbsp; This website is developed by Dineshbabu & Team THINK-X</marquee>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById("navLinks");
+            nav.classList.toggle("nav-active");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".section, .service, .technology");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.2 });
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
